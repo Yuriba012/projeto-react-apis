@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.article`
-  background-color: rgba(114, 159, 146, 1);
-  width: 440px;
-  height: 210px;
+  background-color: ${(props) =>
+    props.color === "white" ? "gray" : props.color};
+  width: 23rem;
+  height: 12rem;
   margin: 100px;
   display: flex;
   position: relative;
@@ -17,13 +18,13 @@ export const Container = styled.article`
 export const InfoText = styled.div`
   color: white;
   margin-bottom: 8px;
-  >h1 {
+  > h1 {
     font-size: 32px;
     margin: 0;
     padding: 0;
   }
-  >p{
-    margin:0;
+  > p {
+    margin: 0;
   }
 `;
 
@@ -33,24 +34,37 @@ export const PokeDetails = styled.div`
   align-items: center;
   > button {
     width: 146px;
+    margin: 2px;
     height: 38px;
     border: none;
     border-radius: 8px;
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
     cursor: pointer;
+    transition: 0.2s;
+    :hover {
+      background-color: gold;
+      transform: translate(0, -5px);
+      box-shadow: white 0px 0px 10px;
+    }
+    :active{
+      transform: scale(1.2);
+      background-color: lightgreen;
+    }
   }
   > p {
     font-weight: bold;
     text-decoration: underline;
     color: white;
+    cursor: pointer;
   }
 `;
 
 export const Pokeball = styled.img`
   position: absolute;
-  right: -4px;
+  right: -3px;
   top: 0;
+  height: 12rem;
 `;
 
 export const PokeImage = styled.img`
@@ -60,3 +74,9 @@ export const PokeImage = styled.img`
   height: 193px;
   width: 193px;
 `;
+
+export const TypeList = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+

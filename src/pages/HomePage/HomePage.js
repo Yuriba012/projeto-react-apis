@@ -3,12 +3,21 @@ import { PokeList } from "../../Components/PokeList/PokeList.js";
 import { Container } from "./style.js";
 import { GlobalStyle } from "../../GlobalStyle.js";
 
-export function HomePage() {
+export function HomePage(props) {
+  const page = "home";
+  const pokeList = props.list.filter((pokemon) =>
+    !props.pokedexList.find(pokemonPokedex=>pokemonPokedex.name === pokemon.name)
+  );
   return (
     <Container>
       <GlobalStyle />
-      <Header />
-      <PokeList />
+      <Header page={page} />
+      <PokeList
+        page={page}
+        pokeList={pokeList}
+        addToPokedex={props.addToPokedex}
+        removeFromPokedex={props.removeFromPokedex}
+      />
     </Container>
   );
 }
