@@ -21,4 +21,10 @@ export const List = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+    >h1{
+      grid-column: 1/4;
+      justify-self: center;
+      font-size: 36px;
+      color: white;
+    }
 `
