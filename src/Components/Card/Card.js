@@ -45,7 +45,7 @@ export function Card(props) {
         </TypeList>
       </div>
       <PokeDetails>
-        <p onClick={() => goToDetails(navigate)}>Detalhes</p>
+        <p onClick={() => goToDetails(navigate, pokemonData.id)}>Detalhes</p>
         {props.page === "home" ? (
           <button onClick={() => props.addToPokedex(props.pokemon)}>
             Capturar!
