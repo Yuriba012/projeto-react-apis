@@ -5,8 +5,11 @@ import background from "../../assets/background-details.png"
 import { BackgroundImage, Container } from "./style.js";
 import { CardDetails } from "../../Components/CardDetails/CardDetails";
 import { GlobalStyle } from "../../GlobalStyle";
+import { useParams } from "react-router-dom";
+import { baseUrl } from "../../baseUrl";
 
 export function DetailsPage() {
+    const pathParams = useParams();
     const page = "details"
   return (
     <Container>
@@ -15,7 +18,7 @@ export function DetailsPage() {
       <Main>
         <BackgroundImage src={background} alt="Background-Ball"/>
         <ListTitle>Detalhes</ListTitle>
-        <CardDetails/>
+        <CardDetails url={`${baseUrl}pokemon/${pathParams.id}`}/>
       </Main>
     </Container>
   );

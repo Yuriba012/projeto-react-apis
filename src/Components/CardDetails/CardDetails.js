@@ -9,43 +9,85 @@ import {
   Moves,
   Move,
   Pokeball,
-  Pokemon
+  Pokemon,
+  Bar,
 } from "./style";
 import { InfoText } from "../Card/style";
-import frontPokemon from "../../assets/front-pokemon.png";
-import backPokemon from "../../assets/back-pokemon.png";
-import baseStats from "../../assets/base-stats.png";
-import poison from '../../assets/poison.png'
-import grass from '../../assets/grass.png'
-import pokeball from "../../assets/pokeball-details.png"
-import pokemon from "../../assets/bulbasaur.png"
+import pokeball from "../../assets/pokeball-details.png";
 import { GlobalStyle } from "../../GlobalStyle.js";
+import { useRequestPokeData } from "../../hooks/useRequestPokeData";
+import { TypeList } from "../Card/style";
+import { Type } from "../Type/Type";
 
-export function CardDetails() {
+export function CardDetails(props) {
+  const pokemonData = useRequestPokeData(props.url, {
+    id: 0,
+    types: [],
+    pictureUrl: "",
+    color: "",
+    name: "",
+    pictureFront: "",
+    pictureBack: "",
+    moves: [],
+    stats: [],
+  });
+
+  const totalStats = (stats) => {
+    let total = 0;
+    for (let stat of stats) {
+      total += Number(stat.base_stat);
+    }
+    return total;
+  };
+  const total = totalStats(pokemonData.stats);
+
   return (
-    <Container>
+    <Container color={pokemonData.color}>
       <GlobalStyle />
       <InfosLeft>
-        <FrontImage src={frontPokemon} />
+        <FrontImage src={pokemonData.pictureFront} />
         <Attributes>
-          <BaseStats src={baseStats} />
+          <h2>Stats</h2>
+          <table width={'100%'}>
+            {pokemonData.stats.map((stat) => {
+              return (
+                <tr>
+                  <td>{stat.stat.name}</td>
+                  <td>{stat.base_stat}</td>
+                  <td>
+                    <Bar total={total} stat={stat.base_stat}/>
+                  </td>
+                </tr>
+              );
+            })}
+            <tr>
+              <td>
+                <h4>Total</h4>
+              </td>
+              <td>{total}</td>
+            </tr>
+          </table>
         </Attributes>
-        <BackImage src={backPokemon} />
+        <BackImage src={pokemonData.pictureBack} />
       </InfosLeft>
-      <Pokeball src={pokeball} alt='Pokeball'/>
-      <Pokemon src={pokemon} alt="Pokemon"/>
+      <Pokeball src={pokeball} alt="Pokeball" />
+      <Pokemon src={pokemonData.pictureUrl} alt="Pokemon" />
       <InfosRight>
         <InfoText>
-          <p>#01</p>
-          <h1>Bulbasaur</h1>
+          <h3>#{pokemonData.id}</h3>
+          <h1>{pokemonData.name}</h1>
         </InfoText>
-        <img src={poison} alt="poison" />
-        <img src={grass} alt="grass" />
+        <TypeList>
+          {" "}
+          {pokemonData.types.map((pokeType) => {
+            return <Type key={pokeType.type.name} type={pokeType.type.name} />;
+          })}
+        </TypeList>
         <Moves>
-            <h2>Moves:</h2>
-            <Move>Razor Wind</Move>
-            <Move>Sword Dance</Move>
-            <Move>Cut</Move>
+          <h2>Moves:</h2>
+          {pokemonData.moves.slice(0, 19).map((move) => {
+            return <Move>{move.move.name}</Move>;
+          })}
         </Moves>
       </InfosRight>
     </Container>
