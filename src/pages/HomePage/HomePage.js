@@ -2,6 +2,7 @@ import { Header } from "../../Components/Header/Header.js";
 import { PokeList } from "../../Components/PokeList/PokeList.js";
 import { Container } from "./style.js";
 import { GlobalStyle } from "../../GlobalStyle.js";
+import { AddModal } from "../../modal/AddModal.js";
 
 export function HomePage(props) {
   const page = "home";
@@ -18,6 +19,7 @@ export function HomePage(props) {
         addToPokedex={props.addToPokedex}
         removeFromPokedex={props.removeFromPokedex}
       />
+      <AddModal isOpen={props.openModalAdd} setModalOpen={props.setModalAdd}/>
     </Container>
   );
 }

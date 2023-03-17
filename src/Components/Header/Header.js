@@ -9,6 +9,7 @@ import pokemonLogo from "../../assets/pokemon-logo.png";
 import { GlobalStyle } from "../../GlobalStyle.js";
 import { goHome, goToPokedex } from "../../router/Coordinator";
 import { useNavigate } from "react-router-dom";
+import { CaptureButton } from "../Card/style";
 
 export function Header(props) {
   const testButton = true;
@@ -30,7 +31,19 @@ export function Header(props) {
           Pokédex
         </PokedexButton>
       ) : props.page === "details" ? (
-        <RemoveButton>Excluir da Pokédex</RemoveButton>
+        props.inPokedex ? (
+          <RemoveButton
+            onClick={() => props.removeFromPokedex(props.currentPokemon)}
+          >
+            Excluir da Pokédex
+          </RemoveButton>
+        ) : (
+          <CaptureButton
+            onClick={() => props.addToPokedex(props.currentPokemon)}
+          >
+            Capturar Pokémon
+          </CaptureButton>
+        )
       ) : (
         <BackHomeButton></BackHomeButton>
       )}

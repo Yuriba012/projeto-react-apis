@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { baseUrl } from "../baseUrl";
+import { setColor } from "../functions/function";
 
 export function useRequestPokeData(url, initState) {
   const [properties, setProperties] = useState(initState);
@@ -12,7 +12,7 @@ export function useRequestPokeData(url, initState) {
         request = {...properties,
           id: response.data.id,
           types: response.data.types,
-          pictureUrl: response.data.sprites.other.dream_world.front_default,
+          pictureUrl: response.data.sprites.other["official-artwork"].front_default,
           color: "",
           name: response.data.species.name,
           pictureFront: response.data.sprites.front_default,
@@ -21,14 +21,8 @@ export function useRequestPokeData(url, initState) {
           stats:response.data.stats
         };
 
-        axios
-          .get(`${baseUrl}pokemon-species/${request.name}/`)
-          .then((response) =>{
-            request.color = response.data.color.name
-            setProperties(request)
-          }
-          )
-          .catch((err) => console.log(err));
+        request.color = (()=>setColor(request.types[0].type.name))
+        setProperties(request)
       })
       .catch((err) => console.log(err));
   }, []);

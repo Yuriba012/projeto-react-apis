@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Projeto Pokédex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div style="display: flex;justify-content:center;">
+<img src="./src/assets/pokemon-logo.png" alt="Yuri Moralles" style="width: 220px; border-radius: 110px;"/>
+</div>
+<div style="text-align:justify; margin: 20px 0">
+O projeto consiste em um site com 3 páginas. A página principal contém uma lista de pokémons que podem ser capturados pelo usuário. Através da página principal, o usuário é capaz de acessar sua pokédex pelo botão "Pokédex", onde é possível visualizar os pokémons já capturados, bem como removê-los da sua pokédex. Em ambas as páginas, o usuário pode pressionar o botão "Detalhes" em qualquer pokémon para acessar uma página contendo os atributos e demais informações do pokémon selecionado.
+        As informações dos pokémons contidos neste projeto foram obtidas por meio da PokeAPI, uma API pública que permite o acesso a um banco de dados com as informações de todos os pokémons existentes.
+</div>
 
-## Available Scripts
+## Ìndice
 
-In the project directory, you can run:
+- <a href="#funcionalidades">Funcionalidades do Projeto</a>
+- <a href="#demonstracao">Demonstração</a>
+- <a href="#rodar">Como rodar este projeto?</a>
+- <a href="#tecnologias">Tecnologias Utilizadas</a>
+- <a href="#autor">Autor</a>
 
-### `npm start`
+- <a href="#proximos_passos">Próximos Passos</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades do projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [x] Lista de pokémons disponíveis
+- [x] Capturar pokémon
+- [x] Pokédex (lista de pokémons capturados)
+- [x] Remover pokémon da pokédex
+- [x] Detalhes do pokémon
 
-### `npm test`
+## Layout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home Page](./src/assets/home_page.jpg)
+![Pokédex](./src/assets/pokedex.jpg)
+![Detalhes](./src/assets/details.jpg)
 
-### `npm run build`
+## Demonstração
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[demonstracao](./)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Como rodar este projeto?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Clone este repositório
+$ git clone https://github.com/Yuriba012/projeto-react-apis.git
 
-### `npm run eject`
+# Acesse a pasta do projeto no seu terminal
+$ cd projeto-react-apis
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Instale as dependências do React e bibliotecas
+$ npm install
+$ npm install styled-components
+$ npm install axios
+$ npm install react-router-dom
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Execute a aplicação
+$ npm run start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# A aplicação será iniciada na porta 3000, acesse no seu navegador pelo endereço: http://localhost:3000
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tecnologias utilizadas
 
-## Learn More
+1. [React JS](https://pt-br.reactjs.org/)
+2. [React Router](https://reactrouter.com/en/main)
+3. [Axios](https://axios-http.com/ptbr/docs/intro)
+4. [Styled-Components](https://styled-components.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Autor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<div style="display: flex;justify-content:center;">
+<img src="https://media.licdn.com/dms/image/D4D03AQGRDaGGibo_9w/profile-displayphoto-shrink_800_800/0/1678072127127?e=1684368000&v=beta&t=bNrT2zTzJMenXuBHtxhOXCTTD4kFnjNfj2zdu5NvGxU" alt="Yuri Moralles" style="width: 220px; border-radius: 110px;"/>
+</div>
 
-### Code Splitting
+[Linkedin](https://www.linkedin.com/in/yuri-moralles-ab752291/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Próximos Passos
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div style="text-align: justify;">
+    Listar todos os pokémons disponibilizados pela PokeAPI na Home Page, controlando a visualização do usuário por meio de métodos de paginação utilizando o design system Chakra UI.
+</div>

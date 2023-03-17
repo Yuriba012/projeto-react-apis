@@ -18,6 +18,8 @@ import { GlobalStyle } from "../../GlobalStyle.js";
 import { useRequestPokeData } from "../../hooks/useRequestPokeData";
 import { TypeList } from "../Card/style";
 import { Type } from "../Type/Type";
+import { useEffect } from "react";
+import { baseUrl } from "../../baseUrl";
 
 export function CardDetails(props) {
   const pokemonData = useRequestPokeData(props.url, {
@@ -41,6 +43,23 @@ export function CardDetails(props) {
   };
   const total = totalStats(pokemonData.stats);
 
+  props.setInPokedex(
+    props.pokedexList.find(
+      (pokedexPokemon) => pokedexPokemon.name === pokemonData.name
+    )
+      ? true
+      : false
+  );
+
+  useEffect(
+    () =>
+      props.setCurrentPokemon({
+        name: pokemonData.name,
+        url: `${baseUrl}pokemon/${pokemonData.name}`,
+      }),
+    [pokemonData]
+  );
+
   return (
     <Container color={pokemonData.color}>
       <GlobalStyle />
@@ -48,14 +67,18 @@ export function CardDetails(props) {
         <FrontImage src={pokemonData.pictureFront} />
         <Attributes>
           <h2>Stats</h2>
-          <table width={'100%'}>
+          <table width={"100%"}>
             {pokemonData.stats.map((stat) => {
               return (
                 <tr>
                   <td>{stat.stat.name}</td>
                   <td>{stat.base_stat}</td>
                   <td>
-                    <Bar total={total} stat={stat.base_stat}/>
+                    <Bar
+                      key={stat.stat.name}
+                      total={total}
+                      stat={stat.base_stat}
+                    />
                   </td>
                 </tr>
               );
@@ -86,7 +109,7 @@ export function CardDetails(props) {
         <Moves>
           <h2>Moves:</h2>
           {pokemonData.moves.slice(0, 19).map((move) => {
-            return <Move>{move.move.name}</Move>;
+            return <Move key={move.move.move}>{move.move.name}</Move>;
           })}
         </Moves>
       </InfosRight>

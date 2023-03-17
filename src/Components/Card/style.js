@@ -22,6 +22,7 @@ export const InfoText = styled.div`
     font-size: 32px;
     margin: 0;
     padding: 0;
+    text-transform: capitalize;
   }
   > p {
     margin: 0;
@@ -47,7 +48,7 @@ export const PokeDetails = styled.div`
       transform: translate(0, -5px);
       box-shadow: white 0px 0px 10px;
     }
-    :active{
+    :active {
       transform: scale(1.2);
       background-color: lightgreen;
     }
@@ -79,4 +80,49 @@ export const TypeList = styled.div`
   display: flex;
   gap: 4px;
 `;
+
+export const CaptureButton = styled.button`
+    width: 146px;
+    margin: 2px;
+    height: 38px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    :hover {
+      background-color: gold;
+      transform: translate(0, -5px);
+      box-shadow: white 0px 0px 10px;
+    }
+    :active{
+      transform: scale(1.2);
+      background-color: lightgreen;
+    }
+    z-index: 5;
+`;
+export const RemoveButton = styled.button`
+      background-color: orange;
+    width: 146px;
+    margin: 2px;
+    height: 38px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    :hover {
+      background-color: gold;
+      transform: translate(0, -5px);
+      box-shadow: white 0px 0px 10px;
+    }
+    :active{
+      transform: scale(1.2);
+      background-color: lightgreen;
+    }
+    z-index: 5;
+`;
+
 
