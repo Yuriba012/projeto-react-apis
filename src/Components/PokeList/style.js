@@ -27,4 +27,10 @@ export const List = styled.section`
       font-size: 36px;
       color: white;
     }
+    @media screen and (width < 800px){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
 `

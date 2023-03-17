@@ -1,9 +1,11 @@
 import {
+  CaptureButton,
   Container,
   InfoText,
   Pokeball,
   PokeDetails,
   PokeImage,
+  RemoveButton,
   TypeList,
 } from "./style";
 import pokeball from "../../assets/pokeball.png";
@@ -14,6 +16,7 @@ import { Type } from "../Type/Type";
 
 export function Card(props) {
   const navigate = useNavigate();
+
   const pokemonData = useRequestPokeData(
     props.pokemon.url,
     {
@@ -25,17 +28,13 @@ export function Card(props) {
     props.pokemon.name
   );
 
-    const capitalizeText = (text) =>{
-      return (text[0].toUpperCase() + text.slice(1))
-    }
-
   return (
     <Container color={pokemonData.color}>
       <Pokeball src={pokeball} alt="Pokeball" />
       <div>
         <InfoText>
           <p>#{pokemonData.id}</p>
-          <h1>{capitalizeText(props.pokemon.name)}</h1>
+          <h1>{props.pokemon.name}</h1>
         </InfoText>
         <TypeList>
           {" "}
@@ -47,13 +46,13 @@ export function Card(props) {
       <PokeDetails>
         <p onClick={() => goToDetails(navigate, pokemonData.id)}>Detalhes</p>
         {props.page === "home" ? (
-          <button onClick={() => props.addToPokedex(props.pokemon)}>
+          <CaptureButton onClick={() => props.addToPokedex(props.pokemon)}>
             Capturar!
-          </button>
+          </CaptureButton>
         ) : (
-          <button onClick={() => props.removeFromPokedex(props.pokemon)}>
+          <RemoveButton onClick={() => props.removeFromPokedex(props.pokemon)}>
             Remover
-          </button>
+          </RemoveButton>
         )}
       </PokeDetails>
       <PokeImage src={pokemonData.pictureUrl} alt="Pokemon" />

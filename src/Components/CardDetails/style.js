@@ -33,6 +33,8 @@ export const InfosRight = styled.article`
 export const FrontImage = styled.img`
   width: 16rem;
   height: 16rem;
+  background-color: white;
+  border-radius: 12px;
 `;
 
 export const Attributes = styled.div`
@@ -53,6 +55,8 @@ export const BackImage = styled.img`
   width: 16rem;
   height: 16rem;
   align-self: flex-end;
+  background-color: white;
+  border-radius: 12px;
 `;
 
 export const Moves = styled.article`

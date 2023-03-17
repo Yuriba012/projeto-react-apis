@@ -11,4 +11,5 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-weight: 20px;
+text-transform: capitalize;
 `;

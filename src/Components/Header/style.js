@@ -45,6 +45,15 @@ export const PokedexButton = styled.button`
   color: #ffffff;
   border: 0px;
   cursor: pointer;
+  @media screen and (width < 800px){
+    width: auto;
+  }
+  font-size: 24px;
+  transition: 0.2s;
+  :hover {
+    transform: translate(-5px, -5px);
+    box-shadow: #000000 5px 5px 8px;
+  }
 `;
 
 export const RemoveButton = styled.button`
@@ -57,4 +66,16 @@ export const RemoveButton = styled.button`
   height: 57px;
   background: #ff6262;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  :hover {
+    background-color: gold;
+    transform: translate(0, -5px);
+    box-shadow: white 0px 0px 10px;
+  }
+  :active{
+    transform: scale(1.2);
+    background-color: lightgreen;
+  }
+  z-index: 5;
 `;
