@@ -14,8 +14,10 @@ export function Router() {
 
   useEffect(() => {
     const storagePokedex = JSON.parse(window.localStorage.getItem("pokedex"));
-    if (storagePokedex.length !== 0) {
-      setPokedexList(storagePokedex);
+    if (storagePokedex !== null) {
+      if (storagePokedex.length !== 0) {
+        setPokedexList(storagePokedex);
+      }
     }
   }, []);
 
@@ -30,7 +32,7 @@ export function Router() {
     if (!isInPokedex) {
       const newPokedex = [...pokedexList, pokemonToAdd];
       setPokedexList(newPokedex);
-      setModalAdd(true)
+      setModalAdd(true);
     }
   };
 
