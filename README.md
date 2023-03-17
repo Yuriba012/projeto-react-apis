@@ -34,7 +34,7 @@ O projeto consiste em um site com 3 páginas. A página principal contém uma li
 
 ## Demonstração
 
-[demonstracao](./)
+[Demonstracao](https://projeto-react-apis-zeta.vercel.app/)
 
 ## Como rodar este projeto?
 
